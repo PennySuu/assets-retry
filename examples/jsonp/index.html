@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jsonp</title>
+  <script src="../../dist/assets-retry.umd.js"></script>
+  <script>
+    var assetsRetryStatistics = window.assetsRetry({
+      // 域名列表，只有在域名列表中的资源，才会被重试
+      domain: { 
+       '10.219.9.6': '127.0.0.1',
+       },
+      // 最大重试次数
+      maxRetryCount: 3,
+      onRetry: function (currentUrl, originalUrl, statistics) {
+        return currentUrl
+      },
+      onSuccess: function (currentUrl) {
+        console.log(currentUrl, assetsRetryStatistics[currentUrl])
+      },
+      onFail: function (currentUrl) {
+        console.log(currentUrl, assetsRetryStatistics[currentUrl])
+      }
+    })
+  </script>
+</head>
+<body>
+  <h1>jsonp</h1>
+
+</body>
+<script src="http://10.219.9.6:5500/sum" ></script>
+</html>

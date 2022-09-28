@@ -36,7 +36,7 @@ export default {
     // https://github.com/rollup/rollup-plugin-node-resolve#usage
     resolve(),
     // uglify js
-    uglify(),
+    // uglify(),
     // // Resolve source maps to the original source
     sourceMaps(),
   ],

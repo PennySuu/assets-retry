@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>异步</title>
+  <script src="../../dist/assets-retry.umd.js"></script>
+  <script>
+    var assetsRetryStatistics = window.assetsRetry({
+      // 域名列表，只有在域名列表中的资源，才会被重试
+      domain: { 
+       'test-hubble-js-bucket.nosdn.127.net': 'nos.globalpay.163.com',
+       },
+      // 最大重试次数
+      maxRetryCount: 3,
+      onRetry: function (currentUrl, originalUrl, statistics) {
+        return currentUrl
+      },
+      onSuccess: function (currentUrl) {
+        console.log(currentUrl, assetsRetryStatistics[currentUrl])
+      },
+      onFail: function (currentUrl) {
+        console.log(currentUrl, assetsRetryStatistics[currentUrl])
+      }
+    })
+  </script>
+</head>
+<body>
+  <h1>动态加载文件——哈勃</h1>
+
+</body>
+<script src="./hbSource.js" ></script>
+<script>
+   window.DATracker.init('MA-858E-EDC851AAE2FD')
+   window.DATracker.track('enter')
+</script>
+</html>

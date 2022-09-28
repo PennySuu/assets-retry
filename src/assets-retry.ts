@@ -61,9 +61,10 @@ export default function init(opts: AssetsRetryOptions = {} as any) {
         }
         initAsync(innerOpts)
         initSync(innerOpts)
-        if (__RETRY_IMAGE__) {
-            initCss(innerOpts)
-        }
+        // if (__RETRY_IMAGE__) {
+        //     initCss(innerOpts)
+        // }
+        initCss(innerOpts)
         return retryCollector
     } catch (e) {
         win.console && console.error('[assetsRetry] error captured', e)
